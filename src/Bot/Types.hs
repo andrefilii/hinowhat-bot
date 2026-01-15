@@ -1,11 +1,11 @@
 {-# LANGUAGE DeriveGeneric #-}
 
 {- |
-   Module: Bot.Types
-   Author: Andrea Filippi
-   Copyright: (c) Andrea Filippi, 2026
-   License: MIT
-   Maintainer: Andrea Filippi <andrea.filippi02@outlook.i>
+    Module     : Bot.Types
+    Author     : Andrea Filippi
+    Copyright  : (c) Andrea Filippi, 2026
+    License    : MIT
+    Maintainer : Andrea Filippi <andrea.filippi02@outlook.i>
 
 This module defines the core data structures used by the hinowhat-bot Discord bot.
 It separates the *Shape* of the data (Pools) from the *Locale* (handled by file loading).
