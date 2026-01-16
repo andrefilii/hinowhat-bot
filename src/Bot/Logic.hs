@@ -28,8 +28,8 @@ import Data.Time.Clock (UTCTime)
 import Data.Time.Clock.POSIX (utcTimeToPOSIXSeconds)
 import System.Random (mkStdGen, randomR)
 
--- | Combines a static secret (the hash of the seed phrase) with the current time to produce a unique Integer seed.
--- We use SHA256 to mix the inputs so that slight changes in time produce completely different seeds.
+-- | INTERNAL: Combines a static secret (the hash of the seed phrase) with the current time to produce a unique 
+-- Integer seed. We use SHA256 to mix the inputs so that slight changes in time produce completely different seeds.
 -- NOTE: the staticSecret has no particular utility, it's just for fun as it contains inside jokes, funny phrases or
 --       whatever you want to put as an easter egg. Just know that every time that you receive an answer, it's
 --       also thanks to that little silly string :)
