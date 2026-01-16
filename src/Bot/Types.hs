@@ -16,6 +16,15 @@ import Data.Aeson (FromJSON)
 import Data.Text (Text)
 import GHC.Generics (Generic)
 
+-- | Enum representing the different types of message pools available.
+-- This allows the Persistence layer to decide which file and which field to read.
+data PoolCategory 
+  = GreetingSimple   -- ^ Generic greetings (e.g., "Hello")
+  | GreetingNamed    -- ^ Greetings with placeholder (e.g., "Hello {name}")
+  | NoAnswer         -- ^ Refusal messages
+  | Special          -- ^ Special messages
+  deriving (Show, Eq)
+
 -- | Represents a collection of greeting messages.
 -- This structure is language-agnostic. The content depends on which JSON file is loaded.
 data GreetingPool = GreetingPool

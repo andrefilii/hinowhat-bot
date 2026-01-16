@@ -13,18 +13,25 @@ mechanism (currently JSON files).
 -}
 module Bot.Persistence 
     ( -- Public interface
-      getGreetingSize
-    , getGreetingAtIndex
+      getPoolSize
+    , getPoolItem
     ) where
 
 import Data.Text (Text)
 
--- | Interface Method: Get the number of available items.
--- Allows the Logic layer to pick an index without seeing the data.
-getGreetingSize :: Text -> IO Int
-getGreetingSize langText = undefined -- TODO
+import Bot.Types
 
--- | Interface Method: Fetch a specific item by index.
--- Acts like a "SELECT item FROM table OFFSET index LIMIT 1"
-getGreetingAtIndex :: Text -> Int -> IO (Maybe Text)
-getGreetingAtIndex langText index = undefined -- TODO
+-- | PRIVATE: Maps the category to the folder name on disk.
+getFolderName :: PoolCategory -> String
+getFolderName GreetingSimple = "greetings"
+getFolderName GreetingNamed  = "greetings"
+getFolderName NoAnswer       = "no"
+getFolderName Special        = "special"
+
+-- | Get the number of items in a specific pool
+getPoolSize :: PoolCategory -> Text -> IO Int
+getPoolSize category lang = undefined -- TODO
+
+-- | Get a specific item by index from a pool.
+getPoolItem :: PoolCategory -> Text -> Int -> IO (Maybe Text)
+getPoolItem category lang index = undefined -- TODO
