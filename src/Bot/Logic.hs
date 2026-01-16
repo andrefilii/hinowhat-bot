@@ -1,16 +1,21 @@
 {-# LANGUAGE OverloadedStrings #-}
 
--- |
---    Module     : Bot.Logic
---    Author     : Andrea Filippi
---    Copyright  : (c) Andrea Filippi, 2026
---    License    : MIT
---    Maintainer : Andrea Filippi <andrea.filippi02@outlook.i>
---
--- This module handles the mathematical and random logic of the bot.
--- It includes the SHA256 hashing mechanism to combine a static secret with the current timestamp to create deterministic
--- seeds for random number generation.
-module Bot.Logic where
+{- |
+    Module     : Bot.Types
+    Author     : Andrea Filippi
+    Copyright  : (c) Andrea Filippi, 2026
+    License    : MIT
+    Maintainer : Andrea Filippi <andrea.filippi02@outlook.i>
+
+This module handles the mathematical and random logic of the bot.
+It includes the SHA256 hashing mechanism to combine a static secret with the current timestamp to create deterministic
+seeds for random number generation.
+-}
+module Bot.Logic 
+   ( -- Public interface
+     shouldTriggerSpecial
+   , pickRandomIndex
+   ) where
 
 import Crypto.Hash (Digest, SHA256, hash)
 import Data.ByteArray (convert)
