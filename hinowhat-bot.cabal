@@ -22,7 +22,8 @@ common shared-properties
         memory,
         time,
         containers,
-        unliftio
+        unliftio,
+        filepath
 
 common runnable-properties
     ghc-options: -threaded -rtsopts -with-rtsopts=-N
