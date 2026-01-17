@@ -31,12 +31,20 @@ main = do
     maybeLang <- lookupEnv "BOT_LANGUAGE"
     let lang = T.pack (fromMaybe "it" maybeLang)
 
+    maybeDebug <- lookupEnv "BOT_DEBUG"
+    let debug = case maybeDebug of
+            Just "true" -> True
+            Just "True" -> True
+            Just "1"    -> True
+            _           -> False
+
     let env = BotEnv
           { staticSeed      = envSecret
           , defaultLanguage = lang
           , token           = envToken
+          , isDebug         = debug
           }
 
-    putStrLn $ "Configuration loaded. Language: " ++ T.unpack lang
+    putStrLn $ "Configuration loaded. Debug Mode: " ++ show debug
 
     runBot env

@@ -64,7 +64,9 @@ data BotEnv = BotEnv
     staticSeed :: Text, 
     
     -- | The default language code (e.g., "it", "en") to use if no server config is found.
-    defaultLanguage :: Text
+    defaultLanguage :: Text,
+
+    isDebug :: Bool
     
     -- TODO: Add serverConfigs map for per-guild localization -> serverConfigs :: Map GuildId Text
   }
