@@ -56,7 +56,11 @@ instance FromJSON SpecialPool
 -- | The Runtime Environment of the Bot.
 -- This holds configuration and state that persists while the bot is running.
 data BotEnv = BotEnv
-  { -- | The hashed seed used for the deterministic RNG (Easter Egg logic)
+  { 
+    -- | Token of the bot
+    token :: Text,
+    
+    -- | The hashed seed used for the deterministic RNG (Easter Egg logic)
     staticSeed :: Text, 
     
     -- | The default language code (e.g., "it", "en") to use if no server config is found.
