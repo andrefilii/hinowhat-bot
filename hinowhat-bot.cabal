@@ -36,6 +36,7 @@ library
         Bot.Types
         Bot.Discord
         Bot.Persistence
+        Bot.Constants
 
 executable hinowhat-bot
     import:           shared-properties, runnable-properties
