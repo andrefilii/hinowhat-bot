@@ -35,3 +35,6 @@ cabal.project.local~
 # OS generated
 .DS_Store
 Thumbs.db
+
+# Do not commit special messages, they're special for a reason
+data/special/*.json
