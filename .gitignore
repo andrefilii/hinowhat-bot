@@ -21,3 +21,17 @@ cabal.project.local
 cabal.project.local~
 .HTF/
 .ghc.environment.*
+
+# Environment
+.env
+.env.local
+.env.*
+
+# Editor settings
+.vscode/
+.idea/
+*.swp
+
+# OS generated
+.DS_Store
+Thumbs.db
