@@ -1,5 +1,12 @@
 {-# LANGUAGE OverloadedStrings #-}
 
+{- |
+    Module     : Bot.LogicSpec
+    Author     : Andrea Filippi
+    Copyright  : (c) Andrea Filippi, 2026
+    License    : MIT
+    Maintainer : Andrea Filippi <andrea.filippi02@outlook.i>
+-}
 module Bot.PersistenceSpec (spec) where
 
 import Test.Hspec
