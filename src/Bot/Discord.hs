@@ -84,16 +84,23 @@ fromBot = userIsBot . messageAuthor
 
 extractCommand :: Text -> Maybe PoolCategory
 extractCommand content
-    | "h!hello" `T.isPrefixOf` T.toLower content =
+    | isHelloCommand (T.toLower content) =
         case extractGreetingName content of
             Just _ -> Just GreetingNamed
             Nothing -> Just GreetingSimple
     | "h!no" `T.isPrefixOf` T.toLower content = Just NoAnswer
     | otherwise = Nothing
+  where
+    isHelloCommand t = any (`T.isPrefixOf` t) ["h!hello", "h!hi", "h!ciao"]
 
 extractGreetingName :: Text -> Maybe Text
 extractGreetingName message =
-    let parameter = T.strip (T.drop 6 (T.toLower message))
+    let lowerMessage = T.toLower message
+        parameter = T.strip $ case True of
+            _ | "h!hello" `T.isPrefixOf` lowerMessage -> T.drop 7 lowerMessage
+              | "h!ciao" `T.isPrefixOf` lowerMessage  -> T.drop 6 lowerMessage
+              | "h!hi" `T.isPrefixOf` lowerMessage    -> T.drop 4 lowerMessage
+              | otherwise                              -> ""
     in if T.null parameter then Nothing else Just parameter
 
 buildResponse :: BotEnv -> PoolCategory -> (Text -> Text) -> DiscordHandler Text
