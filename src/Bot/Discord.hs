@@ -97,9 +97,9 @@ extractGreetingName :: Text -> Maybe Text
 extractGreetingName message =
     let lowerMessage = T.toLower message
         parameter = T.strip $ case True of
-            _ | "h!hello" `T.isPrefixOf` lowerMessage -> T.drop 7 lowerMessage
-              | "h!ciao" `T.isPrefixOf` lowerMessage  -> T.drop 6 lowerMessage
-              | "h!hi" `T.isPrefixOf` lowerMessage    -> T.drop 4 lowerMessage
+            _ | "h!hello" `T.isPrefixOf` lowerMessage -> T.drop 7 message
+              | "h!ciao" `T.isPrefixOf` lowerMessage  -> T.drop 6 message
+              | "h!hi" `T.isPrefixOf` lowerMessage    -> T.drop 4 message
               | otherwise                              -> ""
     in if T.null parameter then Nothing else Just parameter
 
