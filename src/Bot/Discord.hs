@@ -84,11 +84,11 @@ fromBot = userIsBot . messageAuthor
 
 extractCommand :: Text -> Maybe PoolCategory
 extractCommand content
-    | "/hello" `T.isPrefixOf` T.toLower content =
+    | "h!hello" `T.isPrefixOf` T.toLower content =
         case extractGreetingName content of
             Just _ -> Just GreetingNamed
             Nothing -> Just GreetingSimple
-    | "/no" `T.isPrefixOf` T.toLower content = Just NoAnswer
+    | "h!no" `T.isPrefixOf` T.toLower content = Just NoAnswer
     | otherwise = Nothing
 
 extractGreetingName :: Text -> Maybe Text
