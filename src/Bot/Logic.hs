@@ -27,6 +27,7 @@ import qualified Data.Text as T
 import Data.Time.Clock (UTCTime)
 import Data.Time.Clock.POSIX (utcTimeToPOSIXSeconds)
 import System.Random (mkStdGen, randomR)
+import Bot.Constants (specialProbability)
 
 -- | INTERNAL: Combines a static secret (the hash of the seed phrase) with the current time to produce a unique 
 -- Integer seed. We use SHA256 to mix the inputs so that slight changes in time produce completely different seeds.
@@ -69,7 +70,7 @@ shouldTriggerSpecial secret time =
       -- Roll a die from 1 to 100
       (roll, _) = randomR (1 :: Int, 100) gen
    in 
-      roll <= 15 -- TODO: Make this probability configurable in BotEnv
+      roll <= specialProbability -- Defined in Bot.Constants
 
 -- | Decides which index to pick from a collection of given size.
 -- Returns 'Nothing' if the list is empty.
